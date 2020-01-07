@@ -2,14 +2,14 @@ becca:
   email: be@ada.com
   first: b
   last: e
-  type: admin
-  group: mcgilva
+  status: admin
+  group: mcgilvra
 
 orion:
   email: oe@ada.com
   first: o
   last: e
-  type: regular
+  status: regular
   group: mcgilvra
 
 
