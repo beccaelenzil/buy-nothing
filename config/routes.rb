@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "homepages#root"
 
   resources :groups, shallow: true do
+    resources :items
     resources :members, shallow: true do 
       resources :items
     end
