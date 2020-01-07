@@ -1,8 +1,15 @@
-:becca
+becca:
   email: be@ada.com
   first: b
   last: e
   type: admin
-  group: madison valley
+  group: mcgilva
+
+orion:
+  email: oe@ada.com
+  first: o
+  last: e
+  type: regular
+  group: mcgilvra
 
 
