@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BuyNothing</title>
+    <title>buy nothing</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <nav class="navbar bg-dark">
+      <header class="logo">
+        <h1 id="title">Buy Nothing</h1>
+        <h4 class="card-subtitle mb-2 text-muted">A Community for Giving</h4>
+      </header>
+      <button type="button" class="btn btn-light">Groups</button>
+      <button type="button" class="btn btn-light">Log-in</button>
+      <button type="button" class="btn btn-light">Sign-up</button>
+    </nav>
     <%= yield %>
   </body>
 </html>
