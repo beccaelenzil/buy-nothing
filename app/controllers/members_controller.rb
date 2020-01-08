@@ -1,4 +1,8 @@
 class MembersController < ApplicationController
+  def root
+    @member = Member.new
+  end
+  
   def signup_form
     @member = Member.new
   end
@@ -8,14 +12,16 @@ class MembersController < ApplicationController
     member = Member.find_by(username: username)
     if member
       session[:member_id] = member.id
-      flash[:failure] = "There's already a member with username #{username}. Is that you? #{view_context.link_to 'Log-in Here', login_path}."
+      flash[:warning] = "There's already a member with username #{username}. Is that you? #{view_context.link_to 'Log in Here', login_path}."
+      redirect_to root_path
     else
       member = Member.create(member_params)
       session[:member_id] = member.id
       flash[:success] = "Successfully signed up as new member #{username} in group #{Group.find(member.group_id).name}"
+      redirect_to group_path(member.group_id)
     end
   
-    redirect_to group_path(member.group_id)
+    
   end
   
   def login_form
