@@ -15,6 +15,11 @@
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+/*
+ *= require rails_bootstrap_forms
+ */
+ @import 'rails_bootstrap_forms';
+
 
 body {
   background-color: lightblue

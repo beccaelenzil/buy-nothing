@@ -1,5 +1,5 @@
 <ul>
   <% @groups.each do |group|%>
-     <li><%=group%></li> 
+     <%= render partial: "card", locals: {group: group } %>
   <%end%>
 <ul>
