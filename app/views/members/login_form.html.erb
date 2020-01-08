@@ -1,0 +1,7 @@
+<!-- app/views/users/login_form.html.erb -->
+<%= bootstrap_form_for @member, url: login_path, class: 'login' do |f| %>
+<div class="form container">
+  <%= f.text_field :username %>
+  <%= f.submit "Log In" %>
+</div>
+<% end %>

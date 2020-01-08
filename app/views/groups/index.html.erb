@@ -1,5 +1,7 @@
-<ul>
-  <% @groups.each do |group|%>
-     <%= render partial: "card", locals: {group: group } %>
-  <%end%>
-<ul>
+<div class="container">
+  <div class="card-deck text-center">
+    <% @groups.each do |group|%>
+      <%= render partial: "card", locals: {group: group, path: "groups/" } %>
+    <%end%>
+  </div>
+</div>

@@ -20,6 +20,12 @@
       <button type="button" class="btn btn-light">Contact</button>
       <button type="button" class="btn btn-light">FAQs</button>
     </nav>
+    <section class="jumbotron text-center">A BUFFER</section>
+    <section class="alert alert-danger" role="alert"">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>

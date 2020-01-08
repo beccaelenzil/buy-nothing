@@ -1,0 +1,10 @@
+<!-- app/views/users/login_form.html.erb -->
+<%= bootstrap_form_for @member, url: signup_path, class: 'signup' do |f| %>
+<div class="form container">
+    <%= f.text_field :username %>
+
+    <%= f.select :group_id, Group.all.map{ |group| [group.name, group.id] } %> 
+
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
