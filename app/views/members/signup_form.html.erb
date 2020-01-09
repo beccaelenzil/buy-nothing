@@ -1,10 +1,24 @@
 <!-- app/views/users/login_form.html.erb -->
-<%= bootstrap_form_for @member, url: signup_path, class: 'signup' do |f| %>
-<div class="form container">
-    <%= f.text_field :username %>
+<section class="jumbotron text-center">
+    <div class="container">
+    
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="jumbotron-heading">Welcome to The Buy Nothing Project</h1>
+      <p class="lead text-muted">Give. Share. Build Community.</p>
+  <h1 class="h3 mb-3 font-weight-normal">Please Sign Up</h1>
+  <div class="form container">
+    <%= bootstrap_form_for @member, url: signup_path, class: 'signup' do |f| %>
+
+    <%= f.text_field :username, class: "form-control", label: "Username", placeholder: "username" %>
+    <%= f.text_field :email, class: "form-control", label: "E-mail Address", placeholder: "name@gmail.com" %>
+    <%= f.text_field :first, class: "form-control", label: "First Name", placeholder: "First Name" %>
+    <%= f.text_field :last, class: "form-control", label: "Last Name", placeholder: "Last Name" %>
+    <%= f.hidden_field :status, value: "regular" %>
 
     <%= f.select :group_id, Group.all.map{ |group| [group.name, group.id] } %> 
 
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block my-2" "" %>
   </div>
 <% end %>
+</div>
+</section>

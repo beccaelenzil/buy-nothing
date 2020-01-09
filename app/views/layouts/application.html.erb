@@ -20,11 +20,9 @@
       <button type="button" class="btn btn-light">Contact</button>
       <button type="button" class="btn btn-light">FAQs</button>
     </nav>
-    <section class="jumbotron text-center">
-      <% flash.each do |name, message| %>
-        <div class="alert-<%= name %>"><%= sanitize(message) %></div>
-      <% end %>
-    </section>
+    <% flash.each do |name, message| %>
+        <section class="alert-<%= name %> jumbotron text-center"><%= sanitize(message) %></section>
+    <% end %>
     <%= yield %>
   </body>
 </html>

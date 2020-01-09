@@ -6,13 +6,16 @@
       <h1 class="jumbotron-heading">Welcome to The Buy Nothing Project</h1>
       <p class="lead text-muted">Give. Share. Build Community.</p>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      
+      
       <%= bootstrap_form_for @member, url: login_path, class: 'login' do |f| %>
       <div class="form container">
-          <%= f.text_field :username %>
-          <%= f.submit "Log In"  %>
-        </div>
+          <%= f.text_field :username, class: "form-control" %>
+          <%= f.submit "Log In", class: "btn btn-lg btn-primary btn-block my-2"  %>
+        
       <% end %>
-      <a href="/signup" class="btn btn-secondary my-2" >Signup</a>
+      <a href="/signup" class="btn btn-secondary btn-block my-2" >Signup</a>
+      </div>
 
       <p class="mt-5 mb-3 text-muted"><div class="container text-center">
 

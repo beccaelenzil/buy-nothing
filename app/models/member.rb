@@ -1,4 +1,4 @@
 class Member < ApplicationRecord
-  belongs_to :group
+  has_and_belongs_to_many :group
   has_many :items
 end
