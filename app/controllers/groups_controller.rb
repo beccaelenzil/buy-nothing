@@ -19,9 +19,19 @@ class GroupsController < ApplicationController
 
   def create  
     @group = Group.new(group_params)
-    if @group.save
-      redirect_to group_path(@group.id)
-      return
+    member_id = session[:member_id]
+
+    if !member_id
+      flash[:warning] = "You must be logged in to create a group" 
+      redirect_to login_path
+    elsif @group.save
+      relationship = Relationship.new(group_id: @group.id, member_id: member_id, status: "owner")
+      if relationship.save
+        redirect_to group_path(@group.id)
+        return
+      end
+      flash[:warning] = "Group could save by relationship could not"
+      render :new
     else 
       render :new 
       return
