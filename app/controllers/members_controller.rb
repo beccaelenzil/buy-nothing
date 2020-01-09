@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
   layout 'splash', :only => [:signup_form, :login_form]
-  
+  #validates :username, uniqueness: true
+  #validates :email, uniqueness: true
+
   def signup_form
     @member = Member.new
   end
@@ -37,14 +39,12 @@ class MembersController < ApplicationController
     end    
   end
 
-  def join_form
-    member_id = session[:member_id]
-    member = Member.find(member_id)
-    
+  def logout
+    session[:member_id] = nil
+    redirect_to login_path
   end
 
-  def join
-  end
+
 
   private
   def member_params

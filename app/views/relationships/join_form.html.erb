@@ -1,0 +1,18 @@
+<!-- app/views/users/login_form.html.erb -->
+<section class="jumbotron text-center">
+    <div class="container">
+    
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="jumbotron-heading">Welcome to The Buy Nothing Project</h1>
+      <p class="lead text-muted">Give. Share. Build Community.</p>
+  <h1 class="h3 mb-3 font-weight-normal">Please Choose a Group to Join</h1>
+  <div class="form container">
+    <%= bootstrap_form_for @relationship, url: join_path, class: 'join' do |f| %>
+
+    <%= f.select :group_id, Group.all.map{ |group| [group.name, group.id] } %>
+
+    <%= f.submit "Join Group", class: "btn btn-lg btn-primary btn-block my-2" "" %>
+  </div>
+<% end %>
+</div>
+</section>

@@ -6,6 +6,11 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def member_groups
+    member = Member.find(session[:member_id])
+    @groups = member.groups
+  end
+
   def show
     if @group.nil?
       head :not_found
