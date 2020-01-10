@@ -3,22 +3,31 @@ Rails.application.routes.draw do
   root "members#login_form"
 
   resources :groups, shallow: true do
+    resources :members
     resources :items
   end
-  resources :members, shallow: true do 
+  resources :members, shallow: true do
+    resources :groups
     resources :items
   end
 
-  get "/member_groups", to: "groups#member_groups", as: "member_groups"
+  resources :relationships, only: [:index, :destroy]
 
+  #delete "/relationships/:group_id", to: "relationship#destroy", as: "relationships"
+
+  #join
   get "/join", to: "relationships#join_form", as: "join"
   post "/join", to: "relationships#join"
+  post "/groups/:id/join", to: "groups#join", as: "join_group"
 
+  #login
   get "/login", to: "members#login_form", as: "login"
-  get "/signup", to: "members#signup_form", as: "signup"
   post "/login", to: "members#login"
+  #signup
+  get "/signup", to: "members#signup_form", as: "signup"
   post "/signup", to: "members#signup"
+  #logout
   post "/logout", to: "members#logout", as: "logout"
-  
-  get "/members/current", to: "members#current", as: "current_member"
+  #current
+  get "/users/current", to: "users#current", as: "current_user"
 end

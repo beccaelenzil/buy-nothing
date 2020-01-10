@@ -15,23 +15,23 @@
         <h1 id="title">Buy Nothing</h1>
         <h4 class="card-subtitle mb-2 text-muted">A Community for Giving</h4>
       </header>
-      <a href="/groups" type="button" class="btn btn-light">View All Groups</a>
-      <button type="button" class="btn btn-light">Members</button>
-      <button type="button" class="btn btn-light">Contact</button>
-      <button type="button" class="btn btn-light">FAQs</button>
+      <%= link_to "View All Groups", groups_url, class: "btn btn-light"%>
       <% if session[:member_id] %>
-        <a href="/join" type="button" class="btn btn-light">Join A Group</a>
-        <a href="/member_groups" type="button" class="btn btn-light">View My Groups</a>
-        <p type="button" class="btn btn-light">Logged in as: <%=Member.find(session[:member_id]).username %> </p>
-        <a href="/logout" type="button" class="btn btn-light" data-method="post">Logout</a>
+        <%= link_to "Join A Group", join_url, class: "btn btn-light"%>
+        <%= link_to "View My Groups", member_groups_url(session[:member_id]), class: "btn btn-light"%>
+        <%= link_to "Register A Group", new_group_url, class: "btn btn-light"%>
+        <p class="btn btn-light">Logged in as: <%=Member.find(session[:member_id]).username %> </p>
+        <%= link_to "Logout", logout_url, class: "btn btn-light", method: "post"%>
+
       <% else %>
         <a href="/login" type="button" class="btn btn-light">Log In</a>
       <% end %>
-
-       
     </nav>
+
     <% flash.each do |name, message| %>
-        <section class="alert-<%= name %> jumbotron text-center"><%= sanitize(message) %></section>
+      <section 
+      class="alert-<%= name %> jumbotron text-center"><%= sanitize(message) %>
+      </section>
     <% end %>
     
     <%= yield %>

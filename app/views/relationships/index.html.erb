@@ -1,0 +1,19 @@
+<table>
+    <h1>Group Owners</h1>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>Member</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @relationships.each do |relationship|%>
+        <tr>
+          <td><%=Group.find(relationship.group_id).name%></td>
+          <td><%=Member.find(relationship.member_id).email%></td>
+          <td><%=relationship.status%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>

@@ -3,12 +3,12 @@ class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = Group.all
-  end
-
-  def member_groups
-    member = Member.find(session[:member_id])
-    @groups = member.groups
+    if params[:member_id]
+      member = Member.find(session[:member_id])
+      @groups = member.groups
+    else
+      @groups = Group.all
+    end
   end
 
   def show
@@ -57,12 +57,38 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group.destroy
-    
-    redirect_to books_path
-    return
+    owner_id = @group.owner.id
+    if session[:member_id] == owner_id
+      @group.destroy
+      redirect_to groups_path
+      return
+    else
+      flash[:warning]="You must be the owner to delete the group."
+      redirect_to groups_path
+      return
+    end
   end
 
+  def join
+    member_id = session[:member_id]
+    group_id = params[:id]
+    @relationship = Relationship.new(group_id: group_id, member_id: member_id, status: "regular")
+
+    if !member_id
+      flash[:warning] = "You must be logged in to join a group" 
+      redirect_to login_path
+    elsif @relationship.save 
+      redirect_to groups_path
+      return
+    else 
+      flash[:warning] = "Could not join group"
+      render :join_form
+      return
+    end
+    
+  end
+
+  private
   def group_params
     return params.require(:group).permit(:name, :description, :bounds, :map, :city, :state, :country)
   end

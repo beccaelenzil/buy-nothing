@@ -21,6 +21,10 @@
  @import 'rails_bootstrap_forms';
 
 
+.card-deck{
+  display: flex; 
+  flex-wrap: wrap
+}
 body {
   background-color: lightblue
 }

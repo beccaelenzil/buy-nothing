@@ -3,6 +3,14 @@ class MembersController < ApplicationController
   #validates :username, uniqueness: true
   #validates :email, uniqueness: true
 
+  def index
+    if params[:group_id]
+      @members = Group.find(params[:group_id]).members
+    else
+      @members = Member.all
+    end
+  end
+
   def signup_form
     @member = Member.new
   end
@@ -44,7 +52,13 @@ class MembersController < ApplicationController
     redirect_to login_path
   end
 
-
+  def current
+    @current_member = Member.find_by(id: session[:member_id])
+    unless @current_user
+      flash[:warning] = "You must be logged in to see this page"
+      redirect_to root_path
+    end
+  end
 
   private
   def member_params

@@ -25,11 +25,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+#Gemfile
+
+gem 'faker'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'debase', '>= 0.2.4.1'
+  gem 'ruby-debug-ide', '>= 0.7.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -59,11 +65,6 @@ gem 'jquery-turbolinks'
 gem 'bootstrap', '~> 4.1.3'
 group :development, :test do
   gem 'pry-rails'
-end
-
-group :development do
-  gem 'debase', '>= 0.2.4.1'
-  gem 'ruby-debug-ide', '>= 0.7.0'
 end
 
 group :development do
