@@ -1,15 +1,14 @@
 becca:
+  username: be
   email: be@ada.com
   first: b
   last: e
-  status: admin
-  group: mcgilvra
 
 orion:
+  username: oe
   email: oe@ada.com
   first: o
   last: e
-  status: regular
-  group: mcgilvra
+  
 
 

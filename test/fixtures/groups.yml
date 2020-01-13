@@ -5,3 +5,11 @@ mcgilvra:
   city: Seattle
   state: WA
   country: USA
+
+madrona:
+  name: Madrona
+  description: A Buy Nothing Group for families at Madrona Elementary in Seattle, Washington
+  bounds: Madrona Elementary Families
+  city: Seattle
+  state: WA
+  country: USA

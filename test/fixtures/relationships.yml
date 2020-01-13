@@ -1,0 +1,19 @@
+mcgilvra_owner:
+  group: mcgilvra
+  member: becca
+  status: owner
+
+madrona_owner:
+  group: madrona
+  member: orion
+  status: owner
+
+mcgilvra_reg:
+  group: mcgilvra
+  member: orion
+  status: regular
+
+madrona_reg:
+  group: madrona
+  member: becca
+  status: regular
