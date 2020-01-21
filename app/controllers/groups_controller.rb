@@ -35,8 +35,9 @@ class GroupsController < ApplicationController
         redirect_to group_path(@group.id)
         return
       end
-      flash[:warning] = "Group could save by relationship could not"
+      flash[:warning] = "Group could save but relationship could not"
       render :new
+      return
     else 
       render :new 
       return

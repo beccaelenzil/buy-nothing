@@ -9,6 +9,18 @@ orion:
   email: oe@ada.com
   first: o
   last: e
+
+viva:
+  username: ve
+  email: ve@ada.com
+  first: v
+  last: e
+
+magnolia:
+  username: me
+  email: me@ada.com
+  first: m
+  last: e
   
 
 

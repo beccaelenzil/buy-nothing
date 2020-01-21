@@ -8,6 +8,11 @@ madrona_owner:
   member: orion
   status: owner
 
+bush_owner:
+  group: bush
+  member: orion
+  status: owner
+
 mcgilvra_reg:
   group: mcgilvra
   member: orion

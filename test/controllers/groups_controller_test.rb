@@ -41,19 +41,26 @@ describe GroupsController do
         group: {
           name: "fake",
           description: "a fake group",
-          image: "https://i.vimeocdn.com/portrait/4907835_300x300",
+          map: "https://i.vimeocdn.com/portrait/4907835_300x300",
           city: "seattle",
           state: "wa",
           country: "usa"
         }
       }
 
+      member_hash = {
+        member: {
+          username: "be",
+        }
+      }
+
+      post login_path, params: member_hash
+
       expect {
         post groups_path, params: group_hash
       }.must_differ 'Group.count', 1
-
-      new_group = Group.last
-      must_redirect_to group_path(new_group.id)
+      
+      must_respond_with :redirect
     end
   end
 end

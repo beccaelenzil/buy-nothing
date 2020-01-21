@@ -8,16 +8,17 @@ describe Group do
       group.members.length.must_equal 2
     end
     it "can add members" do
-      group = Group.create(name: "madrona")
-      member = Member.create(email: "me@ada.com")
-      relationship = Relationship.create(group_id: group.id, member_id: member.id, status: "regular")
-      group.members.first.id = member.id
+      group = groups(:bush)
+      member = members(:becca)
+      Relationship.create(group_id: group.id, member_id: member.id, status: "regular")
+      group.members.first.must_equal member
     end
   end
 
-  #custom methods
-  describe "owner" do
-    group = groups(:mcgilvra)
-    group.owner.must_equal members(:becca)
+  describe "custom methods" do
+    it "has one owner" do
+      group = groups(:mcgilvra)
+      group.owner.must_equal members(:becca)
+    end
   end
 end

@@ -13,3 +13,11 @@ madrona:
   city: Seattle
   state: WA
   country: USA
+
+bush:
+  name: Bush
+  description: A Buy Nothing Group for families at The Bush School in Seattle, Washington
+  bounds: Bush School Families
+  city: Seattle
+  state: WA
+  country: USA

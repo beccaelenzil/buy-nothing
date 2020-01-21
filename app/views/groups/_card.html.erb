@@ -6,15 +6,17 @@
   </div>
   <footer>
     <a href="#" class="btn btn-secondary btn-block">Contact: <%=group.owner.email%></a>
-    <% if group.members.include?Member.find(session[:member_id])%>
-      <%= link_to "View Members", group_members_url(group.id), class: "btn btn-secondary btn-block"%>
-      <%= link_to "Leave Group", relationship_url(group.id), class: "btn btn-secondary btn-block", method: "delete"%>
-    <%else%>
-      <%= link_to "Join Group", join_group_url(group.id), class: "btn btn-secondary btn-block", method: "post"%>
-    <%end%>
-    <% if group.owner.id == session[:memberf_id]%>
-      <%= link_to "Delete Group", group_url(group.id), class: "btn btn-secondary btn-block", method: "delete" %>
-      <%= link_to "Edit Group", edit_group_url(group.id), class: "btn btn-secondary btn-block"%>
+    <%if session[:member_id]%>
+      <% if group.members.include?Member.find(session[:member_id])%>
+        <%= link_to "View Members", group_members_url(group.id), class: "btn btn-secondary btn-block"%>
+        <%= link_to "Leave Group", relationship_url(group.id), class: "btn btn-secondary btn-block", method: "delete"%>
+      <%else%>
+        <%= link_to "Join Group", join_group_url(group.id), class: "btn btn-secondary btn-block", method: "post"%>
+      <%end%>
+      <% if group.owner.id == session[:member_id]%>
+        <%= link_to "Delete Group", group_url(group.id), class: "btn btn-secondary btn-block", method: "delete" %>
+        <%= link_to "Edit Group", edit_group_url(group.id), class: "btn btn-secondary btn-block"%>
+      <%end%>
     <%end%>
   
   </footer>
